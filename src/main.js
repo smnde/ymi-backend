@@ -8,7 +8,7 @@ config();
 // create server
 const server = http.createServer(app);
 const dbURI = process.env.DB_URI;
-const port = process.env.port;
+const port = process.env.PORT;
 
 mongoose.set("strictQuery", false);
 

@@ -1,11 +1,43 @@
-const index = async (req, res, next) => {};
+import visionService from "../services/vision.service.js";
 
-const show = async (req, res, next) => {};
+const index = async (req, res, next) => {
+	try {
+		const response = await visionService.getAll();
+		return res.status(200).json({ data: response });
+	} catch (error) {
+		next(error);
+	}
+};
 
-const store = async (req, res, next) => {};
+const store = async (req, res, next) => {
+	try {
+		const response = await visionService.create(req.body);
+		return res.status(200).json({ data: response });
+	} catch (error) {
+		next(error);
+	}
+};
 
-const update = async (req, res, next) => {};
+const update = async (req, res, next) => {
+	try {
+		const response = await visionService.update({
+			visionID: req.params.id,
+			visionData: req.body,
+		});
 
-const destroy = async (req, res, next) => {};
+		return res.status(200).json({ data: response });
+	} catch (error) {
+		next(error);
+	}
+};
 
-export default { index, show, store, update, destroy };
+const destroy = async (req, res, next) => {
+	try {
+		await visionService.remove(req.params.id);
+		return res.status(200).json({ data: "OK" });
+	} catch (error) {
+		next(error);
+	}
+};
+
+export default { index, store, update, destroy };

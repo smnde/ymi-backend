@@ -6,6 +6,7 @@ const NewsletterSchema = new Schema(
 		title: { type: String, required: true },
 		slug: { type: String, required: true },
 		content: { type: String, required: true },
+		image: { type: String, required: false },
 		thumbnail: { type: String, required: false },
 	},
 	{ versionKey: false, timestamps: true }
