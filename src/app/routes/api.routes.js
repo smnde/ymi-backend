@@ -1,9 +1,9 @@
 import express from "express";
-import authController from "../controllers/auth.controller";
-import userController from "../controllers/user.controller";
-import newsletterController from "../controllers/newsletter.controller";
-import visionController from "../controllers/vision.controller";
-import programController from "../controllers/program.controller";
+import authController from "../controllers/auth.controller.js";
+import userController from "../controllers/user.controller.js";
+import newsletterController from "../controllers/newsletter.controller.js";
+import visionController from "../controllers/vision.controller.js";
+import programController from "../controllers/program.controller.js";
 
 const router = express.Router();
 
